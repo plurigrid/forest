@@ -1,6 +1,7 @@
-# LocalCharts' Forest
+# Plurigrid Forest
+`If a tree cascades in a Corola forest, does it trace a Riemannian manifold?` - IngSoc
 
-This is a place for writing in the spirit of LocalCharts with high-quality mathematical typesetting. To do this, we use forester to build the source of this website, and then embed comments from the LocalCharts discourse instance.
+Stochastic parasitics with high-quality mathematical typesetting.
 
 See [here](https://forest.localcharts.org/lc-0002.xml) for a very quick tour of Forest (and its LocalCharts incarnation).
 
@@ -11,7 +12,7 @@ See [here](https://forest.localcharts.org/lc-0002.xml) for a very quick tour of 
 3. Move into the directory you cloned into with `cd forest`
 
 Here you have two choices:
-1. The **way God intended** (standard but longer, involves downloading and installing 2GB+ of stuff): 
+1. The **way G-d intended** (standard but longer, involves downloading and installing 2GB+ of stuff): 
 
    This step might take a while the first time as it installs OCaml, TeXlive, and the automatically refreshing preview server.
    1. Run `nix --extra-experimental-features nix-command --extra-experimental-features flakes develop`.
@@ -27,4 +28,4 @@ For a general reference on forester syntax, see [The Forester markup language](h
 
 ## Contributing
 
-You can send PRs to either [github](https://github.com/LocalCharts/forest) or [codeberg](https://codeberg.org/LocalCharts/forest); they are bidirectionally synced through the magic of distributed version control. The difference is that codeberg doesn't send non-public information associated with your account to Microsoft.
+You can send PRs to either [github](https://github.com/plurigrid/forest)
