@@ -54,6 +54,14 @@ def extract_wisdom(node):
             return random.choice(sentences).strip()
     return "No wisdom found in this file."
 
+def extract_wisdom(node):
+    if node.content:
+        # This is a simple example. In a real implementation, you'd use more sophisticated NLP techniques.
+        sentences = node.content.split('.')
+        if sentences:
+            return random.choice(sentences).strip()
+    return "No wisdom found in this file."
+
 if __name__ == "__main__":
     root_path = "."  # Change this to the desired root path
     directory_tree = build_directory_tree(root_path)
