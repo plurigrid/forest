@@ -1,5 +1,6 @@
 import os
 import random
+import time
 
 class DirectoryNode:
     def __init__(self, name, path):
@@ -48,28 +49,71 @@ def random_walk(node, steps=5):
 
 def extract_wisdom(node):
     if node.content:
-        # This is a simple example. In a real implementation, you'd use more sophisticated NLP techniques.
         sentences = node.content.split('.')
         if sentences:
             return random.choice(sentences).strip()
     return "No wisdom found in this file."
 
-def extract_wisdom(node):
-    if node.content:
-        # This is a simple example. In a real implementation, you'd use more sophisticated NLP techniques.
-        sentences = node.content.split('.')
-        if sentences:
-            return random.choice(sentences).strip()
-    return "No wisdom found in this file."
+def generate_ascii_art(smell):
+    art = {
+        "fresh": r"""
+          (
+           )
+          (
+        .-"`'"-.
+       /        \
+       |        |
+       \        /
+        `"--""`
+    """,
+        "musty": r"""
+         _____
+        j_____j
+        /     \
+       /__|_|__\
+      (._._._._.)
+       \       /
+        `.___.'
+    """,
+        "rotten": r"""
+        .---.
+       /_____\
+      /_____/ \
+     /_____/\  \
+    /_____/  \  \
+   /_____/    \  \
+  /_____/      \__\
+    """,
+    }
+    return art.get(smell, "No art for this smell")
+
+def perpetual_random_walk(root_node):
+    current_node = root_node
+    smells = ["fresh", "musty", "rotten"]
+    
+    while True:
+        path = random_walk(current_node)
+        print("\nRandom walk:")
+        for node in path:
+            print(node.name)
+            if node.content:
+                wisdom = extract_wisdom(node)
+                smell = random.choice(smells)
+                print(f"Wisdom: {wisdom}")
+                print(f"Smell: {smell}")
+                print(generate_ascii_art(smell))
+                time.sleep(1)  # Pause for a second to make the output readable
+        
+        current_node = path[-1]
+        print("\nPress Ctrl+C to stop the walk...")
+        time.sleep(2)  # Pause between walks
 
 if __name__ == "__main__":
     root_path = "."  # Change this to the desired root path
     directory_tree = build_directory_tree(root_path)
     print_directory_tree(directory_tree)
     
-    random_path = random_walk(directory_tree)
-    print("\nRandom walk:")
-    for node in random_path:
-        print(node.name)
-        if node.content:
-            print("Wisdom:", extract_wisdom(node))
+    try:
+        perpetual_random_walk(directory_tree)
+    except KeyboardInterrupt:
+        print("\nRandom walk stopped.")
