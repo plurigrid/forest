@@ -252,6 +252,7 @@
 \def\Alg{#{\cat{Alg}}}
 \def\Coalg{#{\cat{Coalg}}}
 \def\EPres{#{\cat{EPres}}}
+\def\mnd{#{\mathbf{mnd}}}
 
 % Dynamical systems
 
@@ -319,7 +320,7 @@
 }
 
 \def\proof[body]{
-  \subtree{\title{Proof.} \body}
+  \subtree{\taxon{proof} \body}
 }
 
 \def\definition[head][body]{
